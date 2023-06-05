@@ -4,6 +4,7 @@ import { SmallCard, SmallCardProps } from "./components/SmallCard";
 import { Container, MainTemperature, SecondaryInfo } from "./styles";
 import storm from "/storm.svg";
 
+
 export interface WeatherDataProps {
   lat: number;
   long: number;
@@ -20,64 +21,115 @@ export interface WeatherDataProps {
   };
 }
 
-export function Principal() {
-  const [location, setLocation] = useState(false);
-  const [weather, setWeather] = useState<WeatherDataProps | null>(null);
+export interface AirQualityProps {
+  lat: number;
+  long: number;
+  list: {
+    main: {
+      aqi: number;
+    };
+  components: {
+    co: number;
+    o3: number;
+    no2: number;
+    so2: number;
+    pm2_5: number;
+    pm10: number;
+  };
+  };
+}
 
-  useEffect(() => {
-    const getWeather = async ({ lat, long }: WeatherDataProps) => {
-      try {
-        const response = await axios.get('https://api.openweathermap.org/data/2.5/weather', {
-          params: {
-            lat: lat,
-            lon: long,
-            appid: 'c55012b21614ac9be3049c8d31875a4f',
-            lang: 'pt',
-            units: 'metric',
+  export function Principal() {
+    const apiKey = import.meta.env.VITE_OPEN_WEATHER_API_KEY;
+    const [weather, setWeather] = useState<WeatherDataProps | null>(null);
+    const [airQuality, setAirQuality] = useState<AirQualityProps | null>(null);
+
+    useEffect(() => {
+      const getAirQuality = async ({ lat, long }: AirQualityProps) => {
+        try {
+          const response = await axios.get('https://api.openweathermap.org/data/2.5/air_pollution', {
+            params: {
+              lat: lat,
+              lon: long,
+              appid: apiKey,
+            },
+          });
+          setAirQuality(response.data);
+          console.log(response.data);
+        } catch (error) {
+          console.error('Error fetching air quality data:', error);
+        }
+      };
+      const getWeather = async ({ lat, long }: WeatherDataProps) => {
+        try {
+          const response = await axios.get('https://api.openweathermap.org/data/2.5/weather', {
+            params: {
+              lat: lat,
+              lon: long,
+              appid: apiKey,
+              lang: 'pt',
+              units: 'metric',
+            },
+          });
+          const roundedTemp = Math.round(response.data.main.temp);
+          const roundedTempMax = Math.round(response.data.main.temp_max);
+          const roundedTempMin = Math.round(response.data.main.temp_min);
+          const roundedFeelsLike = Math.round(response.data.main.feels_like);
+          setWeather({
+            ...response.data,
+            main: {
+              temp: roundedTemp,
+              temp_max: roundedTempMax,
+              temp_min: roundedTempMin,
+              humidity: response.data.main.humidity,
+              feels_like: roundedFeelsLike,
+            },
+          });
+          console.log(response.data);
+        } catch (error) {
+          console.error('Error fetching weather data:', error);
+        }
+      };
+
+      const handleLocation = (position: GeolocationPosition) => {
+        const { latitude, longitude } = position.coords;
+        getWeather({
+          lat: latitude,
+          long: longitude,
+          name: '',
+          wind: {
+            speed: 0,
           },
-        });
-        const roundedTemp = Math.round(response.data.main.temp);
-        const roundedTempMax = Math.round(response.data.main.temp_max);
-        const roundedTempMin = Math.round(response.data.main.temp_min);
-        const roundedFeelsLike = Math.round(response.data.main.feels_like);
-        setWeather({
-          ...response.data,
           main: {
-            temp: roundedTemp,
-            temp_max: roundedTempMax,
-            temp_min: roundedTempMin,
-            humidity: response.data.main.humidity,
-            feels_like: roundedFeelsLike,
+            temp: 0,
+            temp_max: 0,
+            temp_min: 0,
+            humidity: 0,
+            feels_like: 0,
           },
         });
-        console.log(response.data);
-      } catch (error) {
-        console.error('Error fetching weather data:', error);
-      }
-    };
+        getAirQuality({
+          lat: latitude,
+          long: longitude,
+          list: {
+            main: {
+              aqi: 0,
+            },
+            components: {
+              co: 0,
+              o3: 0,
+              no2: 0,
+              so2: 0,
+              pm2_5: 0,
+              pm10: 0,
+            },
+          },
+        });
+      };
 
-    const handleLocation = (position: GeolocationPosition) => {
-      const { latitude, longitude } = position.coords;
-      getWeather({
-        lat: latitude,
-        long: longitude,
-        name: '',
-        wind: {
-          speed: 0,
-        },
-        main: {
-          temp: 0,
-          temp_max: 0,
-          temp_min: 0,
-          humidity: 0,
-          feels_like: 0,
-        },
-      });
-    };
+      navigator.geolocation.getCurrentPosition(handleLocation);
 
-    navigator.geolocation.getCurrentPosition(handleLocation);
-
-  }, []);
+    }, [apiKey]);
   const roundedTemp = weather?.main.temp;
   const roundedTempMax = weather?.main.temp_max;
   const roundedTempMin = weather?.main.temp_min;
@@ -137,7 +189,7 @@ export function Principal() {
           </div>
           <div className="airQualityInfo">
             <p>Bom</p>
-            <h1>20</h1>
+            <h1></h1>
           </div>
         </div>
         <div className="sunTime">
