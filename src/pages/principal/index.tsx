@@ -73,7 +73,7 @@ export interface AirQualityProps {
           });
           const roundedTemp = Math.round(response.data.main.temp);
           const roundedTempMax = Math.round(response.data.main.temp_max);
-          const roundedTempMin = Math.round(response.data.main.temp_min);
+          const roundedTempMin = Math.floor(response.data.main.temp_min);
           const roundedFeelsLike = Math.round(response.data.main.feels_like);
           setWeather({
             ...response.data,
@@ -129,13 +129,34 @@ export interface AirQualityProps {
       navigator.geolocation.getCurrentPosition(handleLocation);
 
     }, [apiKey]);
-  const roundedTemp = weather?.main.temp;
-  const roundedTempMax = weather?.main.temp_max;
-  const roundedTempMin = weather?.main.temp_min;
-  const wind = weather?.wind.speed ? (weather.wind.speed * 3.6).toFixed(1) : undefined;
-  const humidity = weather?.main.humidity;
-  const roundedFeelsLike = weather?.main.feels_like;
 
+  const roundedTemp = weather?.main.temp ?? 'N/A';
+  const roundedTempMax = weather?.main.temp_max ?? 'N/A';
+  const roundedTempMin = weather?.main.temp_min ?? 'N/A';
+  const wind = weather?.wind.speed ? (weather.wind.speed * 3.6).toFixed(1) : 'N/A';
+  const humidity = weather?.main.humidity ?? 'N/A';
+  const roundedFeelsLike = weather?.main.feels_like ?? 'N/A';
+  let indexAir;
+  let indexAirColor;
+
+  if (airQuality?.list[0]?.main?.aqi === 1) {
+    indexAir = 'Ótima';
+    indexAirColor = 'otima';
+  } else if (airQuality?.list[0]?.main?.aqi === 2) {
+    indexAir = 'Boa';
+    indexAirColor = 'boa';
+  } else if (airQuality?.list[0]?.main?.aqi === 3) {
+    indexAir = 'Moderada';
+    indexAirColor = 'moderada';
+  } else if (airQuality?.list[0]?.main?.aqi === 4) {
+    indexAir = 'Ruim';
+    indexAirColor = 'ruim';
+  } else if (airQuality?.list[0]?.main?.aqi === 5) {
+    indexAir = 'Péssima';
+    indexAirColor = 'pessima';
+  } else {
+    indexAir = 'N/A';
+  }
 
   const smallCards: SmallCardProps[] = [
     { key: 1, title: "Vento", value: `${wind} km/h`, icon: "/wind.svg" },
@@ -152,7 +173,7 @@ export interface AirQualityProps {
             <img src={storm} alt="cloud" />
             <div className="location">
               <img src="/pin.svg" alt="location" />
-              <p>{weather?.name}, RR</p>
+              <p>{weather?.name}, PR</p>
               <p></p>  
             </div>
           </div>
@@ -180,16 +201,14 @@ export interface AirQualityProps {
           </div>
         </div>
       </MainTemperature>
-      <SecondaryInfo>
+      <SecondaryInfo >
         <div className="airQuality">
           <div className="airQualityHeader">
             <img src="/leaf.svg" alt="Leaf" />
             <h1>Qualidade do ar</h1>
           </div>
           <div className="airQualityInfo">
-            <p>Bom</p>
-            <h1>{airQuality?.list?.[0]?.main.aqi ?? 'N/A'}</h1>
-
+            <p className={indexAirColor}>{indexAir}</p>
           </div>
         </div>
         <div className="sunTime">
@@ -197,8 +216,6 @@ export interface AirQualityProps {
             <img src="/time.svg" alt="Sun Clock" />
             <h1>Horário do sol</h1>
           </div>
-        
-          
         </div>
       </SecondaryInfo>
     </Container>

@@ -23,7 +23,7 @@ export const Card = styled.div`
 
   }
   p {
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 600;
     color: ${props => props.theme['purple-100']};
     margin: 0 0 0 3.5rem;

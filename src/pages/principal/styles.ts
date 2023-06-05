@@ -45,19 +45,23 @@ export const MainTemperature = styled.div`
   }
   .location {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     width: 12rem;
     height: 1.75rem;
     margin-top: 1rem;
+    margin-right: -1.25rem;
+    line-height: 160%;
 
     img {
+      display: flex;
       color: ${props => props.theme['purple-500']};
       width: 1.75rem;
       height: 1.875rem;
-      margin: auto;
+      margin: -0.125rem 0 0 0;
     }
     p {
-      font-size: 0.875rem;
+      font-size: 1rem;
       font-weight: 400;
       color: ${props => props.theme['purple-400']};
       margin: auto;
@@ -68,7 +72,6 @@ export const MainTemperature = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 16rem;
   }
     .atualTemp {
       h1 {
@@ -91,7 +94,7 @@ export const MainTemperature = styled.div`
       justify-content: center;
       align-items: center;
       gap: 0.5rem;
-      margin: 4rem 0 0 0;
+      margin: 4rem 0 0 0.75rem;
       p {
         font-size: 1.25rem;
         font-weight: 700;
@@ -112,7 +115,7 @@ export const MainTemperature = styled.div`
     align-items: center;
     width: 28.5rem;
     height: 3.75rem;
-    margin: 14rem 0 0 1rem;
+    margin: 4rem 0 0 1rem;
   }
 `;
 
@@ -155,20 +158,44 @@ export const SecondaryInfo = styled.div`
   .airQualityInfo {
     display: flex;
     flex-direction: column;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
     position: absolute;
-    align-self: center;
-    margin: 0 0 0 9rem;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
 
     h1 {
       font-size: 3.5rem;
       color: ${props => props.theme['purple-100']};
     }
     p {
-      font-size: 1.5rem;
+      position: absolute;
+      font-size: 2rem;
       font-weight: 700;
-      color: ${props => props.theme['green']};
-    }
-  }
+      color: ${props => props.theme['purple-100']};
+        &.otima {
+          color: ${props => props.theme['green-200']};
+        }
+
+        &.boa {
+          color: ${props => props.theme['green-100']};
+        }
+
+        &.moderada {
+          color: ${props => props.theme['yellow-300']};
+        }
+
+        &.ruim {
+          color: ${props => props.theme['yellow-500']};
+        }
+
+        &.pessima {
+          color: ${props => props.theme['red']};
+        }
+      }
   
   .sunTime {
     display: flex;
@@ -196,5 +223,5 @@ export const SecondaryInfo = styled.div`
       color: ${props => props.theme['purple-200']};
     }
   }
-
+  }
 `;

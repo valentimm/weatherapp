@@ -11,4 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 600;
     color: ${props => props.theme['white']};
   }
+  body {  
+    background-color: ${props => props.theme['purple-700']};
+  }
 `
