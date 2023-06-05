@@ -28,14 +28,14 @@ export interface AirQualityProps {
     main: {
       aqi: number;
     };
-  components: {
-    co: number;
-    o3: number;
-    no2: number;
-    so2: number;
-    pm2_5: number;
-    pm10: number;
-  };
+      components: {
+      co: number;
+      o3: number;
+      no2: number;
+      so2: number;
+      pm2_5: number;
+      pm10: number;
+    };
   };
 }
 
@@ -126,7 +126,6 @@ export interface AirQualityProps {
           },
         });
       };
-
       navigator.geolocation.getCurrentPosition(handleLocation);
 
     }, [apiKey]);
@@ -189,7 +188,8 @@ export interface AirQualityProps {
           </div>
           <div className="airQualityInfo">
             <p>Bom</p>
-            <h1>aaaaa</h1>
+            <h1>{airQuality?.list?.[0]?.main.aqi ?? 'N/A'}</h1>
+
           </div>
         </div>
         <div className="sunTime">
