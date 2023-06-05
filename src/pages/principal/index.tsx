@@ -189,7 +189,7 @@ export interface AirQualityProps {
           </div>
           <div className="airQualityInfo">
             <p>Bom</p>
-            <h1></h1>
+            <h1>aaaaa</h1>
           </div>
         </div>
         <div className="sunTime">
