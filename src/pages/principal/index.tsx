@@ -1,4 +1,5 @@
 import { AirSunContainer } from "./components/AirAndSun";
+import { Forecast } from "./components/Forecast";
 import { MainTempCard } from "./components/MainTemp";
 import { Container } from "./styles";
 
@@ -8,6 +9,7 @@ export function Principal() {
     <Container>
       <MainTempCard />
       <AirSunContainer />
+      <Forecast />
     </Container>
   )
 }

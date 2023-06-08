@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { SmallCard, SmallCardProps } from "../SmallCard";
+import { SmallCard, SmallCardProps } from "./SmallCard";
 import { MainTemperature } from "./styles";
 import storm from "/storm.svg";
 
@@ -50,7 +50,6 @@ export function MainTempCard () {
               feels_like: roundedFeelsLike,
             },
           });
-          console.log(response.data);
         } catch (error) {
           console.error('Error fetching weather data:', error);
         }
