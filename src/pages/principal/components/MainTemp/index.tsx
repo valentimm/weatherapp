@@ -86,8 +86,8 @@ export function MainTempCard () {
 
     const smallCards: SmallCardProps[] = [
       { key: 1, title: "Vento", value: `${wind} km/h`, icon: "/wind.svg" },
-      { key: 2, title: "Umidade", value: `${humidity}`, icon: "/drops.svg" },
-      { key: 3, title: "Sensação", value: `${roundedFeelsLike} °C`, icon: "/rainPercentage.svg" },
+      { key: 2, title: "Umidade", value: `${humidity} %`, icon: "/drops.svg" },
+      { key: 3, title: "Sensação", value: `${roundedFeelsLike} °C`, icon: "/thermometer.svg" },
     ];
 
   return (

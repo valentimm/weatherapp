@@ -7,9 +7,8 @@ export const Card = styled.div`
     width: 9rem;
     height: 3.75rem;
     flex-direction: column;
-    background-color: rgba(36, 33, 77, 0.4);
+    background-color: rgba(36, 33, 77, 0.6);
     border-radius: 10px;
-    margin: 0 0 0 0;
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.25);
     padding: 0.2rem 0 3rem 0.5rem;
   

@@ -93,12 +93,12 @@ if (airQuality?.list[0]?.main?.aqi === 1) {
 }
 
 
-const pm2_5 = airQuality?.list[0]?.components?.pm2_5;
-const pm10 = airQuality?.list[0]?.components?.pm10;
-const so2 = airQuality?.list[0]?.components?.so2;
-const no2 = airQuality?.list[0]?.components?.no2;
-const o3 = airQuality?.list[0]?.components?.o3;
-const co = airQuality?.list[0]?.components?.co;
+const pm2_5 = airQuality?.list[0]?.components?.pm2_5?? '...';
+const pm10 = airQuality?.list[0]?.components?.pm10?? '...';
+const so2 = airQuality?.list[0]?.components?.so2?? '...';
+const no2 = airQuality?.list[0]?.components?.no2?? '...';
+const o3 = airQuality?.list[0]?.components?.o3?? '...';
+const co = airQuality?.list[0]?.components?.co?? '...';
 
   const airData: AirInfoProps[] = [
   { key: 1, title: "PM2.5", value: `${pm2_5}`, unit: "μg/m3" },

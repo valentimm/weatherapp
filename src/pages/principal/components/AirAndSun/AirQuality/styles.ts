@@ -5,7 +5,8 @@ export const AirInfos = styled.div`
     background-color: rgba(36, 33, 77, 0.4);
     border-radius: 10px;
     padding: 1rem;
-  
+    position: relative;
+
     .airQualityHeader {
       display: flex;
       flex: 1;
@@ -14,23 +15,26 @@ export const AirInfos = styled.div`
       align-items: center;
       width: 22rem;
       padding: 0 4rem;
+
       img {
         width: 1.5rem;
         height: 1.5rem;
       }
+      
       h1 {
         font-size: 1.5rem;
         font-weight: 700;
         color: ${props => props.theme['purple-200']};
       }
     }
+
     .airQualityInfo {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       position: absolute;
-      top: 40%;
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
 
@@ -38,30 +42,32 @@ export const AirInfos = styled.div`
         font-size: 3.5rem;
         color: ${props => props.theme['purple-100']};
       }
+      
       p {
-        position: absolute;
         font-size: 2rem;
         font-weight: 700;
         color: ${props => props.theme['purple-100']};
-          &.otima {
-            color: ${props => props.theme['green-200']};
-          }
+        position: relative;
 
-          &.boa {
-            color: ${props => props.theme['green-100']};
-          }
+        &.otima {
+          color: ${props => props.theme['green-200']};
+        }
 
-          &.moderada {
-            color: ${props => props.theme['yellow-300']};
-          }
+        &.boa {
+          color: ${props => props.theme['green-100']};
+        }
 
-          &.ruim {
-            color: ${props => props.theme['yellow-500']};
-          }
+        &.moderada {
+          color: ${props => props.theme['yellow-300']};
+        }
 
-          &.pessima {
-            color: ${props => props.theme['red']};
-          }
+        &.ruim {
+          color: ${props => props.theme['yellow-500']};
+        }
+
+        &.pessima {
+          color: ${props => props.theme['red']};
+        }
       }
     }
 
