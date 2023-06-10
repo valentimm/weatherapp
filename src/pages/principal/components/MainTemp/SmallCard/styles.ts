@@ -36,5 +36,14 @@ export const Card = styled.div`
     margin: -2.5rem 0 0 0.5rem;
     color: ${props => props.theme['white']};
   }
+
+  @media (max-width: 768px) {
+    .smallCard {
+      display: grid;
+      width: 7rem;
+      height: 3.75rem;
+
+    }
+  }
 }
 `

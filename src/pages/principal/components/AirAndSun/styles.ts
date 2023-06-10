@@ -8,4 +8,12 @@ export const AirSun = styled.div`
   height: 15.25rem;
   gap: 1rem;
   margin: 17rem 0 0 2rem;
+
+  @media (max-width: 768px) {
+    border: 1px solid red;
+    height: 21rem;
+    width: wrap;
+    margin: 26rem 0 0 -22rem;
+    grid-template-columns: 1fr;
+  }
 `

@@ -64,7 +64,7 @@ export const MainTemperature = styled.div`
     flex-direction: column;
     align-items: center;
   }
-    .atualTemp {
+  .atualTemp {
       h1 {
         display: flex;
         justify-content: center;
@@ -79,8 +79,8 @@ export const MainTemperature = styled.div`
         color: ${props => props.theme['purple-200']};
         margin: -6rem 0 0 8rem;
       }
-    }
-    .minMaxTemp {
+  }
+  .minMaxTemp {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -96,8 +96,7 @@ export const MainTemperature = styled.div`
       .minTemp {
         color: ${props => props.theme['purple-200']};
       }
-    }
-
+  }
   .cardLine {
     display: flex;
     flex-direction: row;
@@ -107,5 +106,69 @@ export const MainTemperature = styled.div`
     width: 28.5rem;
     height: 3.75rem;
     margin: 4rem 0 0 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .tempMain {
+      width: 20rem;
+      height: 20rem;
+      margin: 4rem 0 0 2rem;
+    }
+    .headerMain {
+      width: 20rem;
+      height: 2.5rem; 
+      img {
+        margin: -4rem 0 0 -4rem;
+        width: 8rem;
+        height: 8rem;
+      }
+    }
+    .location {
+      width: 8rem;
+      height: 1.25rem;
+      margin: -0.5rem 0.75rem 0 0;
+      line-height: 160%;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 1.25rem;
+        height: 1.375rem;
+        margin: -0.125rem 0 0 0;
+      }
+      p {
+        font-size: 0.95rem;
+        font-weight: 400;
+
+      }
+    }
+    .tempMainInfo {
+
+      margin: 2rem 0 0 0;
+      align-items: center;
+      justify-content: center;
+      h1 {
+        font-size: 4.75rem;
+      }
+      p {
+        font-size: 1.25rem;
+        margin-top: -4.5rem;
+      }
+    }
+    .minMaxTemp {
+      margin: 2rem 0 0 0.75rem;
+      p {
+        font-size: 1.25rem;
+        margin: 1rem 0 0 0;
+      }
+    }
+    .cardLine {
+      width: 18.5rem;
+      height: 8rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: 1rem 0 0 1rem;
+
+    }
   }
 `;

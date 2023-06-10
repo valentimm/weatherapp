@@ -124,4 +124,96 @@ export const SunInfos = styled.div`
       color: ${props => props.theme['purple-100']};
     }
   }
+
+  @media (max-width: 768px) {
+    width: 23rem;
+    height: 10rem;
+    margin: 0 0 0 0.65rem;
+
+    .sunHourHeader {
+      width: 23rem;
+      margin: -0.5rem 0 0 -1rem;
+      padding: 0 5rem;
+      h1 {
+        font-size: 1.25rem;
+      }
+      img {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+    .sunHourContent {
+      margin: 0.5rem 0 0 -0.5rem;
+    }
+    .graphic{
+      width: 12rem;
+      height: 10rem;
+      justify-self: center;
+      align-self: center;
+      margin: 0 0 -2rem 0;
+      p{
+        font-size: 1rem;
+      }
+    }
+    .sun {
+      &.sun-position-6 {
+        margin: 6rem 12rem 0 0;
+        z-index: 6;
+      }
+      &.sun-position-7 {
+        margin: -0.7rem 10rem 0 0;
+        z-index: 7;
+      }
+      &.sun-position-8 {
+        margin: -3rem 8rem 0 0;
+        z-index: 8;
+      }
+      &.sun-position-9 {
+        margin: -4.5rem 6rem 0 0;
+        z-index: 9;
+      }
+      &.sun-position-10 {
+        margin: -5.5rem 4rem 0 0;
+        z-index: 10;
+      }
+      &.sun-position-11 {
+        margin: -6rem 2rem 0 0;
+        z-index: 11;
+      }
+      &.sun-position-12 {
+        margin: -6.2rem 0 0 0;
+        z-index: 12;
+      }
+      &.sun-position-13 {
+        margin: -6rem -2rem 0 0;
+        z-index: 13;
+      }
+      &.sun-position-14 {
+        margin: -5.5rem -4rem 0 0;
+        z-index: 14;
+      }
+      &.sun-position-15 {
+        margin: -4.5rem -6rem 0 0;
+        z-index: 15;
+      }
+      &.sun-position-16 {
+        margin: -3rem -8rem 0 0;
+        z-index: 16;
+      }
+      &.sun-position-17 {
+        margin: -0.7rem -10rem 0 0;
+        z-index: 17;
+      }
+      &.sun-position-18 {
+        margin: 6rem -12rem 0 0;
+        z-index: 18;
+      }
+    }
+    .sunHourInfos {
+      p{
+        font-size: 0.75rem;
+        padding: 1.5rem 1rem;
+      }
+    }
+  }
 `

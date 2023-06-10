@@ -9,4 +9,8 @@ export const ForecastContainer = styled.div`
   margin: 35rem -50rem;
   padding: 2.5rem;
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
