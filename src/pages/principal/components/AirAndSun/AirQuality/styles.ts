@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const AirInfos = styled.div`
     display: flex;
-    background-color: rgba(36, 33, 77, 0.4);
+    background-color: rgba(36, 33, 77, 0.6);
     border-radius: 10px;
     padding: 1rem;
     position: relative;

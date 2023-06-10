@@ -8,8 +8,10 @@ export function Principal() {
   return (
     <Container>
       <MainTempCard />
-      <AirSunContainer />
-      <Forecast />
+
+        <AirSunContainer />
+        <Forecast />
+
     </Container>
   )
 }

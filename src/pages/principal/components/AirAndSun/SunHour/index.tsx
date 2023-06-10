@@ -61,32 +61,32 @@ export function SunriseSunset (){
 
   if (sun && currentTime.isBetween(moment(sun.sys.sunrise * 1000).subtract(1, 'minute'), moment(sun.sys.sunrise * 1000))) {
     indexSunPosition = '6';
-  } else if (currentTime.isBetween(moment('07:00', 'HH:mm'), moment('07:59', 'HH:mm'))) {
+  } else if (currentTime.isBetween(moment('07:00', 'HH:mm'), moment('08:00', 'HH:mm'))) {
     indexSunPosition = '7';
-  } else if (currentTime.isBetween(moment('08:00', 'HH:mm'), moment('08:59', 'HH:mm'))) {
+  } else if (currentTime.isBetween(moment('08:00', 'HH:mm'), moment('09:00', 'HH:mm'))) {
     indexSunPosition = '8';
-  } else if (currentTime.isBetween(moment('09:00', 'HH:mm'), moment('09:59', 'HH:mm'))) {
+  } else if (currentTime.isBetween(moment('09:00', 'HH:mm'), moment('10:00', 'HH:mm'))) {
     indexSunPosition = '9';
-  } else if (currentTime.isBetween(moment('10:00', 'HH:mm'), moment('10:59', 'HH:mm'))) {
+  } else if (currentTime.isBetween(moment('10:00', 'HH:mm'), moment('11:00', 'HH:mm'))) {
     indexSunPosition = '10';
-  } else if (currentTime.isBetween(moment('11:00', 'HH:mm'), moment('11:59', 'HH:mm'))) {
+  } else if (currentTime.isBetween(moment('11:00', 'HH:mm'), moment('12:00', 'HH:mm'))) {
     indexSunPosition = '11';
-  } else if (currentTime.isBetween(moment('12:00', 'HH:mm'), moment('12:59', 'HH:mm'))) {
+  } else if (currentTime.isBetween(moment('12:00', 'HH:mm'), moment('13:00', 'HH:mm'))) {
     indexSunPosition = '12';
-  } else if (currentTime.isBetween(moment('13:00', 'HH:mm'), moment('13:59', 'HH:mm'))) {
+  } else if (currentTime.isBetween(moment('13:00', 'HH:mm'), moment('14:00', 'HH:mm'))) {
     indexSunPosition = '13';
-  } else if (currentTime.isBetween(moment('14:00', 'HH:mm'), moment('14:59', 'HH:mm'))) {
+  } else if (currentTime.isBetween(moment('14:00', 'HH:mm'), moment('15:00', 'HH:mm'))) {
     indexSunPosition = '14';
-  } else if (currentTime.isBetween(moment('15:00', 'HH:mm'), moment('15:59', 'HH:mm'))) {
+  } else if (currentTime.isBetween(moment('15:00', 'HH:mm'), moment('16:00', 'HH:mm'))) {
     indexSunPosition = '15';
-  } else if (currentTime.isBetween(moment('16:00', 'HH:mm'), moment('16:59', 'HH:mm'))) {
+  } else if (currentTime.isBetween(moment('16:00', 'HH:mm'), moment('17:00', 'HH:mm'))) {
     indexSunPosition = '16';
-  } else if (currentTime.isBetween(moment('17:00', 'HH:mm'), moment('17:59', 'HH:mm'))) {
+  } else if (currentTime.isBetween(moment('17:00', 'HH:mm'), sunset)) {
     indexSunPosition = '17';
-  } else if (currentTime.isBetween(moment('18:00', 'HH:mm'), moment('23:59', 'HH:mm'))) {
+  } else if (currentTime.isBetween(sunset, moment('23:59', 'HH:mm'))) {
     indexSunPosition = '18';
   } else {
-    indexSunPosition = '18'; 
+    indexSunPosition = '6'; 
   }
 
   

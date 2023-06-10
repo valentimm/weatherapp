@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const SunInfos = styled.div`
   display: flex;
-  background-color: rgba(36, 33, 77, 0.4);
+  background-color: rgba(36, 33, 77, 0.6);
   border-radius: 10px;
   padding: 1rem;
   .sunHourHeader {
@@ -32,7 +32,7 @@ export const SunInfos = styled.div`
   }
   .graphic{
     display: flex;
-    height: 9.5rem;
+    height: 9rem;
     width: 18rem;
     margin-left: 2rem;
     align-items: center;
@@ -51,85 +51,63 @@ export const SunInfos = styled.div`
   .sun {
     display: block;
     position: absolute;
-    border: 1px solid ${props => props.theme['yellow-700']};
+    border: 4px solid ${props => props.theme['yellow-300']};
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
     background-color: ${props => props.theme['yellow-700']};
+    transition: all 0.3s ease-in-out;
+    
     &.sun-position-6 {
-      margin-right: 18rem;
-      margin-bottom: -9rem;
+      margin: 9rem 18rem 0 0;
       z-index: 6;
     }
     &.sun-position-7 {
-      margin-right: 17.5rem;
-      margin-bottom: -9rem;
-      margin-top: -4rem;
+      margin: -0.75rem 15rem 0 0;
       z-index: 7;
     }
     &.sun-position-8 {
-      margin-right: 16.5rem;
-      margin-bottom: -9rem;
-      margin-top: -7rem;
+      margin: -4.2rem 12rem 0 0;
       z-index: 8;
     }
     &.sun-position-9 {
-      margin-right: 15.25rem;
-      margin-bottom: -9rem;
-      margin-top: -10rem;
+      margin: -6.5rem 9rem 0 0;
       z-index: 9;
     }
     &.sun-position-10 {
-      margin-right: 13rem;
-      margin-bottom: -9rem;
-      margin-top: -13rem;
+      margin: -7.9rem 6rem 0 0;
       z-index: 10;
     }
     &.sun-position-11 {
-      margin-right: 9rem;
-      margin-bottom: -9rem;
-      margin-top: -16rem;
+      margin: -8.65rem 3rem 0 0;
       z-index: 11;
     }
     &.sun-position-12 {
-      margin-right: 0rem;
-      margin-bottom: -9rem;
-      margin-top: -18.5rem;
+      margin: -9rem 0 0 0;
       z-index: 12;
     }
     &.sun-position-13 {
-      margin-right: -9rem;
-      margin-bottom: -9rem;
-      margin-top: -16rem;
+      margin: -8.65rem -3rem 0 0;
       z-index: 13;
     }
     &.sun-position-14 {
-      margin-right: -13rem;
-      margin-bottom: -9rem;
-      margin-top: -13rem;
+      margin: -7.9rem -6rem 0 0;
       z-index: 14;
     }
     &.sun-position-15 {
-      margin-right: -15.25rem;
-      margin-bottom: -9rem;
-      margin-top: -10rem;
+      margin: -6.5rem -9rem 0 0;
       z-index: 15;
     }
     &.sun-position-16 {
-      margin-right: -16.5rem;
-      margin-bottom: -9rem;
-      margin-top: -7rem;
+      margin: -4.2rem -12rem 0 0;
       z-index: 16;
     }
     &.sun-position-17 {
-      margin-right: -17.5rem;
-      margin-bottom: -9rem;
-      margin-top: -4rem;
+      margin: -0.75rem -15rem 0 0;
       z-index: 17;
     }
     &.sun-position-18 {
-      margin-right: -18rem;
-      margin-bottom: -9rem;
+      margin: 9rem -18rem 0 0;
       z-index: 18;
     }
   }
