@@ -8,6 +8,8 @@ export const AirSun = styled.div`
   height: 15.25rem;
   gap: 1rem;
   margin: 17rem 0 0 2rem;
+  align-items: center;
+  justify-items: center;
 
   @media (max-width: 768px) {
     height: 21rem;

@@ -212,7 +212,7 @@ export const SunInfos = styled.div`
     .sunHourInfos {
       p{
         font-size: 0.75rem;
-        padding: 1.5rem 1rem;
+        padding: 1.5rem 2rem 1.5rem 2rem;
       }
     }
   }

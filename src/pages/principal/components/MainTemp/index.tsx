@@ -1,3 +1,4 @@
+import * as Popover from '@radix-ui/react-popover';
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { SmallCard, SmallCardProps } from "./SmallCard";
@@ -90,6 +91,7 @@ export function MainTempCard () {
     ];
 
   return (
+    <Popover.Root>
     <MainTemperature>
         <div className="tempMain">
           <div className="headerMain">
@@ -97,8 +99,18 @@ export function MainTempCard () {
             <div className="location">
               <img src="/pin.svg" alt="location" />
               <p>{weather?.name}, PR</p>
-              <p></p>  
-            </div>
+              <Popover.Trigger className='PopoverTrigger'>
+                <img className="magnifier"src="/magnifier.svg" alt=""/>
+              </Popover.Trigger>
+              <Popover.Portal>
+                <Popover.Content className="PopoverContent" sideOffset={5}>
+                  <div className="PopoverContentHeader">
+                    <img src="/pin.svg" alt="location" />
+                    <input type="text" placeholder="Pesquisar localização" />
+                  </div>
+                </Popover.Content>
+              </Popover.Portal>
+            </div> 
           </div>
           <div className="tempMainInfo">
             <div className="atualTemp">
@@ -124,5 +136,6 @@ export function MainTempCard () {
           </div>
         </div>
       </MainTemperature>
+      </Popover.Root>
   )
 }

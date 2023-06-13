@@ -33,6 +33,7 @@ export const MainTemperature = styled.div`
       width: 11rem;
       height: 11rem;
     }
+
   }
   .location {
     display: flex;
@@ -50,6 +51,11 @@ export const MainTemperature = styled.div`
       width: 1.75rem;
       height: 1.875rem;
       margin: -0.125rem 0 0 0;
+    }
+    .magnifier{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0.25rem 1rem 0 0;
     }
     p {
       font-size: 1rem;
@@ -106,6 +112,15 @@ export const MainTemperature = styled.div`
     width: 28.5rem;
     height: 3.75rem;
     margin: 4rem 0 0 1rem;
+  }
+
+  .PopoverTrigger{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  .PopoverContent{
+    background: red;
   }
 
   @media (max-width: 768px) {
